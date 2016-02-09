@@ -1,2 +1,12 @@
 <h1><%= @question.title %></h1>
-<p><%= @question.body %></p>
+<h6><%= if @question.resolved then "Question is Resolved." end %></h6>
+
+<div class="row">
+  <div class="col-md-8">
+    <p><%= @question.body %></p>
+  </div>
+  <div class ="col-md-4">
+    <%= link_to "Edit", edit_question_path(@question), class: 'btn btn-success' %>
+    <%= link_to "Delete Question", @question, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this question?'} %>
+  </div>
+</div>
