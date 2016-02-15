@@ -24,6 +24,12 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:name)
     end
 
+    it "should capitalize the name" do
+      user_with_lowercase_name = User.create!(name: "steve jobs", email: "stevejobs@bloccit.com", password: "password")
+
+      expect(user_with_lowercase_name.name).to eq "Steve Jobs"
+    end
+
     it "should respond to email" do
       expect(user).to respond_to(:email)
     end
