@@ -18,8 +18,19 @@
 
 .user-info {
   margin-top: 9px;
+  margin-bottom: 9px;
+  margin-right: 5px;
+  display: inline-block;
+  text-align: right;
+  float: left;
 }
 
 .nav {
-  margin-top: 5px;
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+
+.nav-tabs li {
+  margin-top: 9px;
+  margin-bottom: 0px;
 }

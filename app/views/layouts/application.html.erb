@@ -9,19 +9,25 @@
 </head>
 
 <body>
-  <ul>
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%= link_to "Bloccit", root_path %></li>
       <li><%= link_to "Topics", topics_path %></li>
       <li><%= link_to "About", about_path %></li>
-
-      <div class="pull-right user-info">
+      <div class="pull-right">
         <% if current_user %>
-          <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+          <div class= "user-info">
+            <%= current_user.name %><br>
+            <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+          </div>
+          <div class="pull-right gravatar">
+            <img src= "<%= avatar_url(current_user) %>" >
+          </div>
         <% else %>
+        <li>
           <%= link_to "Sign In", new_session_path %> or
           <%= link_to "Sign Up", new_user_path %>
+        </li>
         <% end %>
       </div>
     </ul>
