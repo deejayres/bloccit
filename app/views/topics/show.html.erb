@@ -7,12 +7,17 @@
 
 <div class="row">
   <div class="col-md-8">
-    <p class="lead"><%= @topic.description %></p>
+    <p class="lead">
+      <%= render partial: "labels/list", locals: { labels: @topic.labels } %>
+      <br />
+      <%= @topic.description %>
+    </p>
     <% @topic.posts.each do |post| %>
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
             <%= link_to post.title, topic_post_path(@topic, post) %>
+            <%= render partial: "labels/list", locals: { labels: post.labels } %>
           </h4>
           <small>
             submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br>
